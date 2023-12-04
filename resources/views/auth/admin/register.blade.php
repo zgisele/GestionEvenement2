@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdminReg')
 
 @section('content')
 <div class="container bg-dark">

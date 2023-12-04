@@ -3,8 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
+use App\Models\User;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,6 +36,12 @@ class Admin extends Authenticatable
         return $this->hasMany(Evenement::class);
     }
 
+
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

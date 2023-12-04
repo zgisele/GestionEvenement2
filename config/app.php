@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Admin;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +185,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        // 'Auth'=> 'Illuminate\Support\Facades\Auth::admin'
+        'Auth' => Admin::class,
     ])->toArray(),
 
 ];

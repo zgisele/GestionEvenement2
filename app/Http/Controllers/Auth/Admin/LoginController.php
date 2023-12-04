@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Providers\RouteServiceProvider;
+// use App\Providers\RouteServiceProvider;
+use App\Providers\RouteServiceProviderLog;
+use App\Http\Controllers\EvenementController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -27,7 +29,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProviderLog::HOMEuseur;
+    // protected $redirectTo = Route::get('/listeEven',[EvenementController::class,'show']);
+    // public function affichage()
+    // {
+    //     return view()
+    // }
+       
 
     /**
      * Create a new controller instance.
