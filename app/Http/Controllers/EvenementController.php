@@ -137,19 +137,89 @@ class EvenementController extends Controller
         $event->statut =$request->statut;
         $event->admin_id = $admin->id;
         $event->dateEvenement =$request->dateEvenement;
-        $event->imageMiseEnAvant =$request->imageMiseEnAvant;
+        // $event->imageMiseEnAvant =$request->imageMiseEnAvant;
 
-        // if ($request->file('imageMiseEnAvant')) {
-        //     $imagePath = $request->file('imageMiseEnAvant')->storestore('storage/image', 'public');
-        //     $event->imageMiseEnAvant = $imagePath;
-        // }
-        $event->save();
-        return redirect()->back();
-    } else {
+
+        // Vérifiez si une image est fournie, sinon utilisez une valeur par défaut
+        // $imagePath = $request->file('imageMiseEnAvant') ? $request->file('imageMiseEnAvant')->store('storage/image', 'public') : 'storage/image/default.jpg';
+        // $event->imageMiseEnAvant = $imagePath;
+        
+        
+    //     if ($request->file('imageMiseEnAvant')) {
+    //         $imagePath = $request->file('imageMiseEnAvant')->store('storage/image', 'public');
+    //         $event->imageMiseEnAvant = $imagePath;
+    //    }
+
+
+
+
+    // if ($request->file('imageMiseEnAvant')) {
+    //     $file = $request->file('imageMiseEnAvant');
+    //     $filename = date('YmdHi') . $file->getClientOriginalName();
+    //     $file->move(public_path('storage/images'), $filename); 
+    //     $event->imageMiseEnAvant = $filename;
+    // }
+    //     $event->save();
+    //     return redirect()->back();
+    // } else {
         // Gérer le cas où aucun admin n'est connecté
         // Par exemple, rediriger vers une page de connexion
-        return redirect('admin/login');
+    //     return redirect('admin/login');
+    // }
+
+
+    if ($request->file('imageMiseEnAvant')) {
+        $file = $request->file('imageMiseEnAvant');
+        $filename = date('YmdHi') . $file->getClientOriginalName();
+        $file->move(public_path('storage/images'), $filename);
+        $event->imageMiseEnAvant = $filename;
+        } else {
+            // Aucun fichier valide fourni, utilisez une valeur par défaut
+            $event->imageMiseEnAvant = 'default.jpg';
+        }
+
+    $event->save();
+    return redirect()->back();
     }
 
+    }
+
+    // public function AffichageClient(Evenement $evenements)
+    // {
+    //     //
+    //     $evenements = Evenement::all(); // Récupérer tous les biens depuis le modèle article
+    //     return view('/Evenements/voirPlus',compact('evenements')); // Passer les Articles à la vu
+       
+    
+    // }
+    public function AffichageClient(Evenement $evenements)
+    {
+        //
+        $evenements = Evenement::all(); // Récupérer tous les biens depuis le modèle article
+        return view('Evenements/voirPlus',compact('evenements')); // Passer les Articles à la vu
+        // return view('/PageAcueil',compact('evenements')); // Passer les Articles à la vu
+       
+    
+    }
+    public function AffichageAcueil(Evenement $evenements)
+    {
+        //
+        $evenements = Evenement::all(); 
+        return view('index',compact('evenements')); 
+       
+    
+    }
+    // public function AffichageUser()
+    // {
+    //     //
+        
+    //     return redirect()->route('home'); 
+       
+    
+    // }
+    public function AffichageUser()
+    {
+        $evenements = Evenement::all(); 
+        return view('home', compact('evenements'));
     }
 }

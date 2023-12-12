@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evenement;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +26,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // public function AffichageUser()
+    // {
+    //     $evenements = Evenement::where('user_id', auth()->id())->get(); // Exemple de récupération d'evenements pour l'utilisateur
+    //     return view('home', compact('evenements'));
+    // }
 }

@@ -101,6 +101,33 @@
 
 
 </div>
+
+<!-- <div class="col-md-12 mt-5"> -->
+<!-- <div class="card mb-4 box-shadow"> -->
+
+<div class="row mt-5 ">
+    @foreach($evenements as $evenement)
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{asset('storage/image/'.$evenement->imageMiseEnAvant)}}"  height="150">
+            <div class="card-body">
+                <h5 class="card-title">libelle :{{$evenement->libelle}}</h5>
+                <h5 class="card-title">Date Limite :{{$evenement->dateLimiteInscription}}</h5>
+                <p class="card-text">description :{{$evenement->description}}</p>
+                <p class="card-text">Statut :{{$evenement->statut}}</p>
+                <p class="card-text">Date Evenement:{{$evenement->dateEvenement}}</p>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    
+</div>
+<!-- </div> -->
+<!-- </div> -->
+    
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

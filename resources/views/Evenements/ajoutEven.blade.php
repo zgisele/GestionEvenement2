@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }} Evenement</div>
 
                 <div class="card-body">
-                    <form method="post" action="/stocageEven"  >
+                    <form method="post" action="/stocageEven">
                         @csrf
         
 
