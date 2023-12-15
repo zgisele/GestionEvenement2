@@ -24,7 +24,7 @@
             @foreach($evenements as $evenements)
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{asset('storage/image/'.$evenements->imageMiseEnAvant)}}"  height="150">
+                    <img class="card-img-top" src="{{asset('storage/images/'.$evenements->imageMiseEnAvant)}}"  height="150">
                     <div class="card-body">
                         <h5 class="card-title">libelle :{{$evenements->libelle}}</h5>
                         <h5 class="card-title">Date Limite :{{$evenements->dateLimiteInscription}}</h5>
@@ -36,6 +36,11 @@
                 </div>
             </div>
             @endforeach
+
+
+
+
+
             
         </div>
     </div>
